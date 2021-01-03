@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#EDEDED"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/graph_section"
+       android:layout_width="match_parent"
+       android:layout_height="180dp"
+       android:layout_margin="10dp"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:cardCornerRadius="10dp">
+
+       <androidx.appcompat.widget.LinearLayoutCompat
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="horizontal">
+
+           <org.eazegraph.lib.charts.PieChart
+               android:id="@+id/piechart"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:padding="5dp"
+               app:egLegendTextSize="18sp"
+               android:layout_weight=".8"
+               app:egUsePieRotation="true"
+               app:egValueTextSize="25sp"/>
+
+           <androidx.appcompat.widget.LinearLayoutCompat
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+               android:padding="5dp"
+               android:orientation="vertical">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:padding="13dp"
+                   android:orientation="horizontal">
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:padding="15dp"
+                       android:background="#FFB300"/>
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:paddingLeft="10dp"
+                       android:gravity="top"
+                       android:layout_weight="0.1"
+                       android:text="Total Cases"/>
+
+
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:padding="13dp"
+                   android:orientation="horizontal">
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:padding="15dp"
+                       android:background="#44FF00"/>
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:paddingLeft="10dp"
+                       android:gravity="top"
+                       android:layout_weight="0.1"
+                       android:text="Recovered"/>
+
+
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:padding="13dp"
+                   android:orientation="horizontal">
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:padding="15dp"
+                       android:background="#D81B60"/>
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:paddingLeft="10dp"
+                       android:gravity="top"
+                       android:layout_weight="0.1"
+                       android:text="Deaths"/>
+
+
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:padding="13dp"
+                   android:orientation="horizontal">
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:padding="15dp"
+                       android:background="#039BE5"/>
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:paddingLeft="10dp"
+                       android:gravity="top"
+                       android:layout_weight="0.1"
+                       android:text="Active"/>
+
+
+               </LinearLayout>
+
+
+           </androidx.appcompat.widget.LinearLayoutCompat>
+
+       </androidx.appcompat.widget.LinearLayoutCompat>
+
+   </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/graph_section"
+        app:layout_constraintBottom_toTopOf="@id/track"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Global Data"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:id="@+id/global_data"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#000"
+                    app:layout_constraintTop_toBottomOf="@id/global_data"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/line1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cases"
+                            android:padding="1dp"
+                            android:layout_weight="1"
+                            android:gravity="left"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="#FB0000"
+                            android:padding="5dp"
+                            android:gravity="right"
+                            android:id="@+id/cases_count"
+                            android:text="0"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#000"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Recovered"
+                            android:padding="1dp"
+                            android:layout_weight="1"
+                            android:gravity="left"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="#FB0000"
+                            android:padding="5dp"
+                            android:gravity="right"
+                            android:id="@+id/cases_recorvered"
+                            android:text="0"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#000"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Critical"
+                            android:padding="1dp"
+                            android:layout_weight="1"
+                            android:gravity="left"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="#FB0000"
+                            android:padding="5dp"
+                            android:gravity="right"
+                            android:id="@+id/cases_critical"
+                            android:text="0"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#000"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Active"
+                            android:padding="1dp"
+                            android:layout_weight="1"
+                            android:gravity="left"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="#FB0000"
+                            android:padding="5dp"
+                            android:gravity="right"
+                            android:id="@+id/cases_active"
+                            android:text="0"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#000"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Total Cases"
+                            android:padding="1dp"
+                            android:layout_weight="1"
+                            android:gravity="left"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="#FB0000"
+                            android:padding="5dp"
+                            android:gravity="right"
+                            android:id="@+id/cases_total_cases"
+                            android:text="0"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#000"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Total Deaths"
+                            android:padding="1dp"
+                            android:layout_weight="1"
+                            android:gravity="left"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="#FB0000"
+                            android:padding="5dp"
+                            android:gravity="right"
+                            android:id="@+id/cases_total_deaths"
+                            android:text="0"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#000"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:padding="1dp"
+                            android:layout_height="wrap_content"
+                            android:text="Today Deaths"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                           />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="#FB0000"
+                            android:padding="5dp"
+                            android:gravity="right"
+                            android:id="@+id/cases_today_deaths"
+                            android:text="0"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#000"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="1dp"
+                            android:text="Affected Countries"
+                            android:layout_weight="1"
+                            android:gravity="left"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="#FB0000"
+                            android:padding="5dp"
+                            android:gravity="right"
+                            android:id="@+id/cases_affectedcountries"
+                            android:text="0"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#000"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"/>
+
+
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/progress_circular"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="track county"
+        android:backgroundTint="#FB8C00"
+        android:id="@+id/track"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="10dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
