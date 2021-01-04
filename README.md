@@ -1,7 +1,7 @@
 # Covid_19_Tracker_App
 Component Uses:
 1) Rest Api
-2) Volly 
+2) Volley 
 3) Glide
 4) Graph Api(black Fizz)
 5) Recycler View
